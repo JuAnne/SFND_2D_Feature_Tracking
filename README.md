@@ -98,24 +98,31 @@ Inside function matchDescriptors(), implemented a knn matcher based on selector 
 
 | Detector\Descriptor | BRISK | BRIEF | ORB | FREAK | AKAZE | SIFT |
 | --- | --- | --- |--- |--- |--- |--- |
-| **SHITOMASI** | 767 |944|908|768|N/A|N/A|
-| **HARRIS** | 142|173 |162|144|N/A|N/A|
-| **FAST** | 899 |1099|1071|878|N/A|N/A|
-| **BRISK** | 1570 |1704|1514|1524|N/A|N/A|
-| **ORB** | 751 |545|763|420|N/A|N/A|
-| **AKAZE** | 1215 |1266|1182|1187|1259|N/A|
-| **SIFT** | 594 |704|N/A|595|N/A|N/A|
+| **SHITOMASI** | 767 | 944 | 908 | 768 | N/A | N/A |
+| **HARRIS** | 142 | 173 | 162 | 144 | N/A | N/A |
+| **FAST** | 899 | 1099 | 1071 | 878 | N/A | N/A |
+| **BRISK** | 1570 | 1704 | 1514 | 1524 | N/A | N/A |
+| **ORB** | 751 | 545 | 763 | 420 | N/A | N/A |
+| **AKAZE** | 1215 | 1266 | 1182 | 1187 | 1259 | N/A |
+| **SIFT** | 594 | 704 | N/A | 595 | N/A | N/A |
 
 
 9. Performance Evaluation 3: Log the time it takes for keypoint detection and descriptor extraction. The results must be entered into a spreadsheet and based on this data, the TOP3 detector / descriptor combinations must be recommended as the best choice for our purpose of detecting keypoints on vehicles.
 
-Log processing time of detector and descriptor in ms on all 10 images
+Average processing time of detector and descriptor in ms on all 10 images
 | Detector\Descriptor | BRISK | BRIEF | ORB | FREAK | AKAZE | SIFT |
 | --- | --- | --- |--- |--- |--- |--- |
-| **SHITOMASI** |  |  |  |  |N/A|N/A|
-| **HARRIS** |  |  |  |  |N/A|N/A|
-| **FAST** |  |  |  |  |N/A|N/A|
-| **BRISK** |  |  |  |  |N/A|N/A|
-| **ORB** |  |  |  |  |N/A|N/A|
-| **AKAZE** |  |  |  |  |  |N/A|
-| **SIFT** |  |  |N/A|  |N/A|N/A|
+| **SHITOMASI** | 366.47 | 18.79 | 20.62 | 58.39 | N/A | N/A |
+| **HARRIS** | 353.28 | 17.60 | 19.63 | 57.97 | N/A | N/A |
+| **FAST** | 339.73 | 1.78 | 2.01 | 44.96 | N/A | N/A |
+| **BRISK** | 721.36 | 379.70 | 382.57 | 423.75 | N/A| N/A|
+| **ORB** | 347.59 | 9.84 | 12.59 | 51.20 | N/A | N/A |
+| **AKAZE** | 413.98 | 81.53 | 82.01 | 122.15 | 148.84 | N/A |
+| **SIFT** | 447.81 | 136.07 |N/A| 173.41 |N/A|N/A|
+
+TOP3 detector / descriptor combinations are
+* FAST + BRIEF : 1.78 ms
+* FAST + ORB : 2.01 ms
+* ORB + BRIEF: 9.84 ms
+
+
