@@ -123,6 +123,10 @@ Average processing time of detector and descriptor in ms on all 10 images
 TOP3 detector / descriptor combinations are
 * FAST + BRIEF : 1.78 ms
 * FAST + ORB : 2.01 ms
-* ORB + BRIEF: 9.84 ms
+* ORB + BRIEF : 9.84 ms
+
+
+## Report reference
+
 
 
