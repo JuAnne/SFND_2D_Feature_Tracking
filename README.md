@@ -82,7 +82,7 @@ Inside function matchDescriptors(), implemented a knn matcher based on selector 
 ```
 
 7. Performance Evaluation 1: Count the number of keypoints on the preceding vehicle for all 10 images and take note of the distribution of their neighborhood size. Do this for all the detectors you have implemented.
-```shell
+
 | Detector | Total number KptsPerROI |
 | --- | --- |
 | **SHITOMASI** | 1179 |
@@ -92,10 +92,10 @@ Inside function matchDescriptors(), implemented a knn matcher based on selector 
 | **ORB** | 1161 |
 | **AKAZE** | 1670 |
 | **SIFT** | 1387|
-```
+
 
 8. Performance Evaluation 2: Count the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.
-```shell
+
 | Detector\Descriptor | BRISK | BRIEF | ORB | FREAK | AKAZE | SIFT |
 | --- | --- | --- |--- |--- |--- |--- |
 | **SHITOMASI** | 767 |944|908|768|N/A|N/A|
@@ -105,10 +105,10 @@ Inside function matchDescriptors(), implemented a knn matcher based on selector 
 | **ORB** | 751 |545|763|420|N/A|N/A|
 | **AKAZE** | 1215 |1266|1182|1187|1259|N/A|
 | **SIFT** | 594 |704|N/A|595|N/A|N/A|
-```
+
 
 9. Performance Evaluation 3: Log the time it takes for keypoint detection and descriptor extraction. The results must be entered into a spreadsheet and based on this data, the TOP3 detector / descriptor combinations must be recommended as the best choice for our purpose of detecting keypoints on vehicles.
-```shell
+
 Log processing time of detector and descriptor in ms on all 10 images
 | Detector\Descriptor | BRISK | BRIEF | ORB | FREAK | AKAZE | SIFT |
 | --- | --- | --- |--- |--- |--- |--- |
@@ -119,4 +119,3 @@ Log processing time of detector and descriptor in ms on all 10 images
 | **ORB** |  |  |  |  |N/A|N/A|
 | **AKAZE** |  |  |  |  |  |N/A|
 | **SIFT** |  |  |N/A|  |N/A|N/A|
-```
