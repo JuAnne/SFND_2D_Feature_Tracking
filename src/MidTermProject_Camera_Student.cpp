@@ -53,9 +53,20 @@ int main(int argc, const char *argv[])
 
     // Initialization for performance evaluation on different combinations
     for (const auto& detectorType : detectorTypeList)
-    {
+    { 
         for (const auto& descriptorType : descriptorTypeList)
-        {
+        {              
+            // descriptor "AKAZE" only works with detector "AKAZE"
+            // descriptor "SIFT" doesn't work with any detector type
+            // descriptor "ORB" doesn't work with detector "SIFT"
+            if ((descriptorType == "AKAZE" && detectorType != "AKAZE")
+            || (descriptorType == "SIFT")
+            || (descriptorType == "ORB" && detectorType == "SIFT")
+            )
+            {
+                continue;
+            }
+
             for (const auto& matcherType : matcherTypeList)
             {
                 for (const auto& selectorType : selectorTypeList)
@@ -74,6 +85,7 @@ int main(int argc, const char *argv[])
                         perfEval.timeDescriptorExtraction[i] = 0.0f;
                         perfEval.timeMatching[i] = 0.0f;
                     }
+
                     perfEvalList.push_back(perfEval);
                 }
             }
@@ -90,6 +102,7 @@ int main(int argc, const char *argv[])
         cout << "----- Performance Evaluation -----" << endl;
         cout << "detectorType = " << detectorType << " descriptorType = " << descriptorType << " matcherType = " << matcherType << " selectorType = " << selectorType << endl;
 
+        dataBuffer.clear(); // clear buffer for each evaluation
 
         /****** MAIN LOOP OVER ALL IMAGES ******/
 
@@ -97,7 +110,6 @@ int main(int argc, const char *argv[])
         {
             ReturnVal retVal = {0, 0.0f};
             /****** LOAD IMAGE INTO BUFFER ******/
-
             // assemble filenames for current index
             ostringstream imgNumber;
             imgNumber << setfill('0') << setw(imgFillWidth) << imgStartIndex + imgIndex;
@@ -233,7 +245,7 @@ int main(int argc, const char *argv[])
                 cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << endl;
 
                 // visualize matches between current and previous image
-                bVis = true;
+                bVis = false;
                 if (bVis)
                 {
                     cv::Mat matchImg = ((dataBuffer.end() - 1)->cameraImg).clone();
